@@ -129,7 +129,28 @@ nginx.conf edited file:
     types_hash_max_size 2048;
     server_tokens off;
     more_clear_headers 'Server';
+    
+Setup virtual host:
 
+    sudo nano /etc/nginx/sites-available/domain-name.com
+    
+    Insert configuration:
+    server {
+        listen 80; # Specify the listening port
+        listen [::]:80; # The same thing for IPv6
+        root /var/www/domain-name.com/html; # The path to the website files
+        index index.html index.htm; # Files to display if only the domain name is specified in the address
+        server_name domain-name.com; # Domain name of this site
+        location / {
+        try_files $uri $uri/ =404;
+        }
+    }
+    
+    mkdir -p /var/www/domain-name.com/html
+    chmod -R 755 /var/www
+    ln -s /etc/nginx/sites-available/domain-name.com /etc/nginx/sites-enabled/
+    nginx -t
+    systemctl restart nginx
 
 ### 4. SSL configuration
 
