@@ -32,7 +32,30 @@
     
     sudo apt autoremove (removed unneded packages)
     
-
+1.5 Firewall
+    Allow only ports 80,443,22
+    
+    1.5.1 Check if firewall is installed
+    
+    sudo ufw status verbose
+    
+    1.5.2 Install ufw and configure
+    
+    sudo apt install ufw
+    
+    sudo ufw default deny incoming
+    
+    sudo ufw default allow outgoing
+    
+    sudo ufw allow ssh
+    
+    sudo ufw allow http
+    
+    sudo ufw allow https
+    
+    
+    
+    
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
 
