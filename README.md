@@ -11,8 +11,16 @@
   
 1.3 Disable root access
     1.3.1 backup the configuration file
+          
           cd /etc/ssh
+          
           cp sshd_config sshd_config.bak
+          
+          nano sshd_config
+          
+          Modify: PermitRootLogin no
+          
+          systemctl restart ssh
 
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
