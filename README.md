@@ -112,6 +112,25 @@
 
 ### 3. NGINX configuration
 
+    /etc/nginx$ sudo cp nginx.conf nginx.conf.bak
+    
+    sudo nano nginx.conf
+    
+nginx.conf edited file:
+
+    ##
+    # Basic Settings
+    ##
+
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    server_tokens off;
+    more_clear_headers 'Server';
+
+
 ### 4. SSL configuration
 
 ### 5. Fail2Ban Config
