@@ -58,6 +58,11 @@
     sudo ufw status verbose
     
     sudo reboot
+1.6 Fail 2 Ban
+
+sudo apt install fail2ban
+
+
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
 
