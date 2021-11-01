@@ -58,10 +58,47 @@
     sudo ufw status verbose
     
     sudo reboot
+    
 1.6 Fail 2 Ban
+    sudo apt install fail2ban
+    
+    cd /etc/fail2ban
+    
+    ls -l
+    
+    sudo cp jail.conf jail.local
+    
+    sudo nano jail.local
+    
+    jail.local files changes:
+    ------------------------------------------------------------------------------------
+    # "bantime" is the number of seconds that a host is banned.
+    bantime  = 604800s
 
-sudo apt install fail2ban
+    # A host is banned if it has generated "maxretry" during the last "findtime"
+    # seconds.
+    findtime  = 10800s
 
+    # "maxretry" is the number of failures before a host get banned.
+    maxretry = 5
+
+    # "maxmatches" is the number of matches stored in ticket (resolvable via tag <matches>>
+    maxmatches = %(maxretry)s
+    --------------------------------------------------------------------------------------
+    
+    Find (ctrl + w) [sskd] section
+    --------------------------------------------------------------------------------------
+    [sshd]
+
+    # To use more aggressive sshd modes set filter parameter "mode" in jail.local:
+    # normal (default), ddos, extra or aggressive (combines all).
+    # See "tests/files/logs/sshd" or "filter.d/sshd.conf" for usage example and details.
+    mode   = aggressive
+    port    = ssh
+    logpath = %(sshd_log)s
+    backend = %(sshd_backend)s
+    enabled = true
+    ---------------------------------------------------------------------------------------
 
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
