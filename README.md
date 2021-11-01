@@ -22,6 +22,17 @@
           
           systemctl restart ssh
 
+1.4 Server package updates
+    
+    clear
+    
+    sudo apt update (updates the latest packages)
+    
+    sudo apt upgrade (run the package upgrade)
+    
+    
+    
+
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
 
