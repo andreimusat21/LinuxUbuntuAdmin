@@ -155,3 +155,6 @@ Setup virtual host:
 ### 4. SSL configuration
 
 ### 5. Fail2Ban Config
+
+### 6. Install .Net Core / .Net Core SDK
+
