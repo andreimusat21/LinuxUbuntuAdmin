@@ -53,9 +53,11 @@
     
     sudo ufw allow https
     
+    sudo ufw enable
     
+    sudo ufw status verbose
     
-    
+    sudo reboot
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
 
