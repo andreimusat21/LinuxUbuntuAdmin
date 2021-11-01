@@ -105,6 +105,11 @@
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
 
+        sudo apt install nginx libnginx-mod-http-headers-more-filter
+        sudo systemctl status nginx
+        
+        sudo apt install mariadb-server
+
 ### 3. NGINX configuration
 
 ### 4. SSL configuration
