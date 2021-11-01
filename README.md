@@ -100,6 +100,8 @@
     enabled = true
     ---------------------------------------------------------------------------------------
 
+    Restart the service:
+    sudo systemctl restart fail2ban
 
 ### 2. Installing & Optimizing Nginx, MariaDB and PHP 7.4
 
