@@ -30,7 +30,7 @@
     
     sudo apt upgrade (run the package upgrade)
     
-    
+    sudo apt autoremove (removed unneded packages)
     
 
 
