@@ -1,4 +1,4 @@
-# LinuxUbuntuAdmin
+# ServerUbuntuAdmin
 
 ### 1.Initial server configuration
 1.1 Add new user
