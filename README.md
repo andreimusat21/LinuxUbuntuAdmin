@@ -158,3 +158,29 @@ Setup virtual host:
 
 ### 6. Install .Net Core / .Net Core SDK
 
+### 7. Lets encrypt SSL with CloudFlare DNS
+based on: https://www.bjornjohansen.com/wildcard-certificate-letsencrypt-cloudflare
+
+    a. Get CloudFlare API credentials
+    sudo chmod 0700 /root/.secrets/
+    sudo chmod 0400 /root/.secrets/cloudflare.ini
+    dns_cloudflare_email = "youremail@example.com"
+    dns_cloudflare_api_key = <ApiToken>
+    
+    b.Install Certbot
+    
+    sudo apt-get update
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository universe
+    sudo add-apt-repository ppa:certbot/certbot
+    sudo apt-get update
+    sudo apt-get install certbot python-certbot-nginx python3-certbot-dns-cloudflare
+    
+    c. Run Certbot with CloudFlare authenticator
+    sudo certbot certonly --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/cloudflare.ini -d example.com,*.example.com --preferred-challenges dns-01
+    
+    d. Automatic renew
+    certbot renew --dry-run
+    
+    f. Cron autorenew
+    14 5 * * * /usr/bin/certbot renew --quiet --post-hook "/usr/sbin/service nginx reload" > /dev/null 2>&
