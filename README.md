@@ -184,3 +184,5 @@ based on: https://www.bjornjohansen.com/wildcard-certificate-letsencrypt-cloudfl
     
     f. Cron autorenew
     14 5 * * * /usr/bin/certbot renew --quiet --post-hook "/usr/sbin/service nginx reload" > /dev/null 2>&
+    
+based on: https://hijackson.com/how-to-generate-lets-encrypt-ssl-wildcard-with-cloudflare-using-certbot/
